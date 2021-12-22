@@ -21,10 +21,17 @@ for i in languages:
     full_path = os.path.join(APP_FOLDER, languages[i])
     with open(full_path) as f:
         for line in f:
-            words[i].append(line) 
+            words[i].append(line.replace("\n","")) 
 
 full_path = os.path.join(APP_FOLDER, "echantillon.txt")
 file = open(full_path)
-inputedtext = file.read().replace("\n", " ")
+text = file.read().replace("\n", " ")
 file.close()
 
+for lang in range(len(matches)):
+    for word in words[i]:
+        if word in text :
+            matches[lang][1] += 1
+        
+for i in range(len(matches)):
+    print(matches[i][1])
