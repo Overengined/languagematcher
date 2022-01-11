@@ -21,6 +21,7 @@ matches = [
 APP_FOLDER = os.path.dirname(os.path.realpath(sys.argv[0]))
 
 #we use the root path and a loop to gather all the dictionnaries entries
+print("reading dictionnaries...")
 for i in languages:
     full_path = os.path.join(APP_FOLDER, languages[i])
     with open(full_path) as f:
@@ -28,6 +29,7 @@ for i in languages:
             words[i].append(line.replace("\n","")) 
 
 #
+print("reading text...")
 full_path = os.path.join(APP_FOLDER, "echantillon.txt")
 file = open(full_path)
 text = file.read().replace("\n", " ")
@@ -39,12 +41,12 @@ file.close()
 #         if word in text :
 #             print(word)
 #             matches[lang][1] += 1
-
+print("counting matches...")
 for testedlang in range(len(matches)):
     for wordoftext in text:
         if wordoftext in words[i]:
             matches[testedlang][1]+=1
 
-
 for i in range(len(matches)):
     print(matches[i][1])
+input("")
