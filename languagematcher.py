@@ -16,6 +16,13 @@ matches = [
     ["fr",0]
 ]
 
+def matches():
+    for wordoftext in text:
+        if wordoftext in words["en"]:
+            matches[0][1]+=1
+        if wordoftext in words["fr"]:
+            matches[1][1]+=1
+
 #this piece of code allows the program to work in all possible directories, as lon a sys is present on the system
 #it creates a root path wich is the global path of the program's folder
 APP_FOLDER = os.path.dirname(os.path.realpath(sys.argv[0]))
@@ -35,18 +42,9 @@ file = open(full_path)
 text = file.read().replace("\n", " ")
 file.close()
 
-#
-# for lang in range(len(matches)):
-#     for word in words[i]:
-#         if word in text :
-#             print(word)
-#             matches[lang][1] += 1
 print("counting matches...")
-for testedlang in range(len(matches)):
-    for wordoftext in text:
-        if wordoftext in words[i]:
-            matches[testedlang][1]+=1
+matches()
 
-for i in range(len(matches)):
-    print(matches[i][1])
+print("en :",matches[0][1])
+print("en :",matches[1][1])
 input("")
