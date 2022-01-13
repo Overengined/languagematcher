@@ -16,12 +16,30 @@ matches = [
     ["fr",0]
 ]
 
-def matches():
+progressionhelper = 0
+progressionstatus = 0
+
+def progression():
+    global text
+    global progressionhelper
+    global progressionstatus
+    if progressionhelper >= len(text)/10 :
+        progressionhelper = 0
+        print(round((progressionstatus/len(text))*100,0),"% done")
+
+    
+def matchcount():
+    global matches
+    global words
+    global progressionhelper, progressionstatus
     for wordoftext in text:
         if wordoftext in words["en"]:
             matches[0][1]+=1
         if wordoftext in words["fr"]:
             matches[1][1]+=1
+        progression()
+        progressionhelper += 1
+        progressionstatus += 1
 
 #this piece of code allows the program to work in all possible directories, as lon a sys is present on the system
 #it creates a root path wich is the global path of the program's folder
@@ -43,7 +61,7 @@ text = file.read().replace("\n", " ")
 file.close()
 
 print("counting matches...")
-matches()
+matchcount()
 
 print("en :",matches[0][1])
 print("en :",matches[1][1])
