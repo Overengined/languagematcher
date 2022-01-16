@@ -57,8 +57,8 @@ APP_FOLDER = os.path.dirname(os.path.realpath(sys.argv[0]))
 print("reading dictionnaries...")
 for i in languages:
     full_path = os.path.join(APP_FOLDER, languages[i])
-    with open(full_path) as f:
-        for line in f:
+    with open(full_path) as file:
+        for line in file:
             words[i].append(line.replace("\n","")) 
 
 #
