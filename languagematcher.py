@@ -64,5 +64,5 @@ print("counting matches...")
 matchcount()
 
 print("en :",matches[0][1])
-print("en :",matches[1][1])
+print("fr :",matches[1][1])
 input("")
