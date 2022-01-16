@@ -16,7 +16,6 @@ matches = [
     ["fr",0]
 ]
 
-progressionhelper = 0
 progressionstatus = 0
 
 def progression():
@@ -24,11 +23,9 @@ def progression():
     fonction gérant l'affichage de la progression
     '''
     global text
-    global progressionhelper
     global progressionstatus
-    if progressionhelper >= len(text)/10 :
-        progressionhelper = 0
-        print(round((progressionstatus/len(text))*100,0),"% done", end="\r")
+    print(round((progressionstatus/len(text))*100,0),"% done", end="\r")
+
 
     
 def matchcount():
@@ -37,14 +34,13 @@ def matchcount():
     '''
     global matches
     global words
-    global progressionhelper, progressionstatus
+    global progressionstatus
     for wordoftext in text:
         if wordoftext in words["en"]:
             matches[0][1]+=1
         if wordoftext in words["fr"]:
             matches[1][1]+=1
         progression()
-        progressionhelper += 1
         progressionstatus += 1
 
 
@@ -72,7 +68,7 @@ text = text.split(" ")
 print("counting matches...")
 matchcount()
 
-print("")
+print(" 100 % done")
 print("en :",matches[0][1])
 print("fr :",matches[1][1])
 
