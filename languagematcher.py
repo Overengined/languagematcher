@@ -3,17 +3,20 @@ import os,sys
 #initialises vars
 languages = {
     "en":"en.txt",
-    "fr":"fr.txt"
+    "fr":"fr.txt",
+    "es":"es.txt"
 }
 
 words = {
     "en":[],
-    "fr":[]
+    "fr":[],
+    "es":[]
 }
 
 matches = [
     ["en",0],
-    ["fr",0]
+    ["fr",0],
+    ["es",0]
 ]
 
 progressionstatus = 0
@@ -40,6 +43,8 @@ def matchcount():
             matches[0][1]+=1
         if wordoftext in words["fr"]:
             matches[1][1]+=1
+        if wordoftext in words["es"]:
+            matches[2][1]+=1
         progression()
         progressionstatus += 1
 
@@ -53,14 +58,14 @@ APP_FOLDER = os.path.dirname(os.path.realpath(sys.argv[0]))
 print("reading dictionnaries...")
 for i in languages:
     full_path = os.path.join(APP_FOLDER, languages[i])
-    with open(full_path) as file:
+    with open(full_path, encoding="utf-8") as file:
         for line in file:
             words[i].append(line.replace("\n","")) 
 
 #
 print("reading text...")
 full_path = os.path.join(APP_FOLDER, "echantillon.txt")
-file = open(full_path)
+file = open(full_path, encoding="utf-8")
 text = file.read().replace("\n"," ")
 file.close()
 text = text.split(" ")
@@ -71,10 +76,13 @@ matchcount()
 print("/!\ 100 % done")
 print("en :",matches[0][1])
 print("fr :",matches[1][1])
+print("es :",matches[2][1])
 
-if matches[0][1] > matches[1][1] :
+if matches[0][1] > matches[1][1] and matches[0][1] > matches[2][1] :
     print("votre texte est écrit en Anglais, la langue de Shakespeare !")
-else:
+elif matches[1][1] > matches[0][1] and matches[1][1] > matches[2][1]:
     print("votre texte est écrit en Francais, la langue de Molière !")
+elif matches[2][1] > matches[0][1] and matches[2][1] > matches[2][1]:
+    print("votre texte est écrit en Espagnol, la langue de Cervantes !")
 
 input("")
