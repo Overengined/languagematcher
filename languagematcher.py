@@ -68,7 +68,7 @@ text = text.split(" ")
 print("counting matches...")
 matchcount()
 
-print(" 100 % done")
+print("/!\ 100 % done")
 print("en :",matches[0][1])
 print("fr :",matches[1][1])
 
