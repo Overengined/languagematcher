@@ -33,7 +33,7 @@ def progression():
     
 def matchcount():
     '''
-    fonctions permettant de dénombrer  
+    fonctions permettant de compter les correspondances 
     '''
     global matches
     global words
