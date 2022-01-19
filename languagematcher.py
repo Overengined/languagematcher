@@ -35,6 +35,7 @@ def matchcount():
     '''
     fonctions permettant de compter les correspondances 
     '''
+    global text
     global matches
     global words
     global progressionstatus
