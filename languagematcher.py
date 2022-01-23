@@ -21,6 +21,14 @@ matches = [
 
 progressionstatus = 0
 
+# read the name of the file from the argument
+try:
+    fileToRead = str(sys.argv[1])
+    
+except: #if the user specified nothing
+    print("no file specified, aborting")
+    exit()
+
 def progression():
     '''
     fonction gérant l'affichage de la progression
@@ -65,7 +73,7 @@ for i in languages:
 
 #
 print("reading text...")
-full_path = os.path.join(APP_FOLDER, "echantillon.txt")
+full_path = os.path.join(APP_FOLDER, fileToRead)
 file = open(full_path, encoding="utf-8")
 text = file.read().replace("\n"," ")
 file.close()
