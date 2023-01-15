@@ -57,6 +57,21 @@ def matchcount():
         progression()
         progressionstatus += 1
 
+def compare():
+    """
+    outputs language code corresponding to largest match count
+    """
+    print("comparing...")
+    tmp = []
+    #gathers all match-counts and appends them to tmp, then sort tmp
+    for i in matches:
+        tmp.append(i[1])
+    tmp.sort()
+    #finds corresponding language code to largest match-count in matches and returns it
+    for i in matches:
+        if i[1] == tmp[0]:
+            return i[0]
+
 
 
 #this piece of code allows the program to work in all possible directories, as lon a sys is present on the system
@@ -87,11 +102,13 @@ print("en :",matches[0][1])
 print("fr :",matches[1][1])
 print("es :",matches[2][1])
 
-if matches[0][1] > matches[1][1] and matches[0][1] > matches[2][1] :
+result = compare()
+
+if result=="en" :
     print("The text is written in English")
-elif matches[1][1] > matches[0][1] and matches[1][1] > matches[2][1]:
+elif result == "fr":
     print("The text is written in French")
-elif matches[2][1] > matches[0][1] and matches[2][1] > matches[2][1]:
+elif result == "es":
     print("The text is written in Spanish")
 
 input("")
