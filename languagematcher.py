@@ -31,7 +31,7 @@ except: #if the user specified nothing
 
 def progression():
     '''
-    fonction gérant l'affichage de la progression
+    function managing progress display
     '''
     global text
     global progressionstatus
@@ -41,7 +41,7 @@ def progression():
     
 def matchcount():
     '''
-    fonctions permettant de compter les correspondances 
+    function allowing match count 
     '''
     global text
     global matches
@@ -88,10 +88,10 @@ print("fr :",matches[1][1])
 print("es :",matches[2][1])
 
 if matches[0][1] > matches[1][1] and matches[0][1] > matches[2][1] :
-    print("votre texte est écrit en Anglais, la langue de Shakespeare !")
+    print("the text is written in English")
 elif matches[1][1] > matches[0][1] and matches[1][1] > matches[2][1]:
-    print("votre texte est écrit en Francais, la langue de Molière !")
+    print("The text is written in French")
 elif matches[2][1] > matches[0][1] and matches[2][1] > matches[2][1]:
-    print("votre texte est écrit en Espagnol, la langue de Cervantes !")
+    print("The text is written in Spanish")
 
 input("")
