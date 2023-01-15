@@ -88,7 +88,7 @@ print("fr :",matches[1][1])
 print("es :",matches[2][1])
 
 if matches[0][1] > matches[1][1] and matches[0][1] > matches[2][1] :
-    print("the text is written in English")
+    print("The text is written in English")
 elif matches[1][1] > matches[0][1] and matches[1][1] > matches[2][1]:
     print("The text is written in French")
 elif matches[2][1] > matches[0][1] and matches[2][1] > matches[2][1]:
