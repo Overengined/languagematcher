@@ -69,7 +69,7 @@ def compare():
     tmp.sort()
     #finds corresponding language code to largest match-count in matches and returns it
     for i in matches:
-        if i[1] == tmp[0]:
+        if i[1] == tmp[-1]:
             return i[0]
 
 
