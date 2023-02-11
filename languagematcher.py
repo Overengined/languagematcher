@@ -4,19 +4,22 @@ import os,sys
 languages = {
     "en":"en.txt",
     "fr":"fr.txt",
-    "es":"es.txt"
+    "es":"es.txt",
+    "it":"it.txt"
 }
 
 words = {
     "en":[],
     "fr":[],
-    "es":[]
+    "es":[],
+    "it":[]
 }
 
 matches = [
     ["en",0],
     ["fr",0],
-    ["es",0]
+    ["es",0],
+    ["it",0]
 ]
 
 progressionstatus = 0
@@ -54,6 +57,8 @@ def matchcount():
             matches[1][1]+=1
         if wordoftext in words["es"]:
             matches[2][1]+=1
+        if wordoftext in words["it"]:
+            matches[3][1]+=1
         progression()
         progressionstatus += 1
 
@@ -101,6 +106,7 @@ print("/!\ 100 % done")
 print("en :",matches[0][1])
 print("fr :",matches[1][1])
 print("es :",matches[2][1])
+print("it :",matches[3][1])
 
 result = compare()
 
@@ -110,5 +116,7 @@ elif result == "fr":
     print("The text is written in French")
 elif result == "es":
     print("The text is written in Spanish")
+elif result == "it":
+    print("The text is written in Italian")
 
 input("")
