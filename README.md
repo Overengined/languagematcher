@@ -1,6 +1,6 @@
 # languagematcher
 A python program to find which language a text is the closest to, based on the usage of dictionnaries.  
-#### Currently supported languages:
+### Currently supported languages :
 - French
 - English
 - Spanish
@@ -9,6 +9,6 @@ A python program to find which language a text is the closest to, based on the u
 #### WIP languages :
 - German
 
-### languages I wish to add but that would require a large rework of the code:
+#### languages I wish to add but that would require a large code rework :
 - Arabic
 - Russian
